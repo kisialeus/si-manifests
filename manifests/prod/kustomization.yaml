@@ -1,5 +1,5 @@
-namespace: prod-app
-namePrefix: sampleapp-
+namespace: si
+namePrefix: si-
 
 resources:
 - ../base
