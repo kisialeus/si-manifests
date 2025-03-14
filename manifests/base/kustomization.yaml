@@ -1,0 +1,16 @@
+resources:
+- deployment.yaml
+- hpa.yaml
+#- nginxconfigmap.yaml
+- service.yaml
+- ingress.yaml
+
+labels:
+- includeTemplates: true
+  pairs:
+    app: si
+  # These shouldn't be changed once the resource has been applied to a cluster
+  # https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/labels/
+- includeSelectors: true
+  pairs:
+    app: si

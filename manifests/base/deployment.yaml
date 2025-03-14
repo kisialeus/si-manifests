@@ -1,0 +1,67 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        prometheus_metrics: gather
+        app: demoapp
+    spec:
+#      affinity:
+#        podAntiAffinity:
+#          preferredDuringSchedulingIgnoredDuringExecution:
+#            - podAffinityTerm:
+#                labelSelector:
+#                  matchExpressions:
+#                    - key: app
+#                      operator: In
+#                      values:
+#                        - demoapp
+#                topologyKey: topology.kubernetes.io/zone
+#              weight: 100
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+      containers:
+        - name: si
+          image: application-image
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 35
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 30
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "300m"
+        - name: nginx
+          image: nginx:latest
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+          ports:
+            - name: web
+              containerPort: 8080
+          resources:
+            requests:
+              memory: "16Mi"
+              cpu: "1m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"

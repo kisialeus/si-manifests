@@ -1,0 +1,11 @@
+namespace: prod-app
+namePrefix: sampleapp-
+
+resources:
+- ../base
+
+
+configMapGenerator:
+- name: nginx-config
+  files:
+  - nginx.conf=nginx.conf

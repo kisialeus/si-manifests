@@ -1,0 +1,5 @@
+kind: Component
+patches:
+  - path: application.yaml
+    target:
+      kind: Application
