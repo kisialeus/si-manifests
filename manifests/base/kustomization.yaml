@@ -1,10 +1,11 @@
 resources:
 - deployment.yaml
-- hpa.yaml
+#- hpa.yaml
 #- nginxconfigmap.yaml
 - service.yaml
 - ingress.yaml
 - pvc.yaml
+- storageClass.yaml
 
 labels:
 - includeTemplates: true

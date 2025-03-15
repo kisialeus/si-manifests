@@ -4,7 +4,8 @@ metadata:
   name: pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
+  storageClassName: si-ebs-sc
