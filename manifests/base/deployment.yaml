@@ -27,6 +27,9 @@ spec:
         - name: nginx-config
           configMap:
             name: nginx-config
+        - name: si-pv
+          persistentVolumeClaim:
+            claimName: si-pvc
       containers:
         - name: si
           image: application-image
@@ -42,10 +45,6 @@ spec:
           volumeMounts:
             - name: si-pv
               mountPath: "/data"
-          volumes:
-            - name: si-pv
-              persistentVolumeClaim:
-                claimName: si-pvc
         - name: nginx
           image: nginx:latest
           volumeMounts:
