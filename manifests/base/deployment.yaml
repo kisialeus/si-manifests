@@ -42,6 +42,9 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "300m"
+          env:
+            - name: STORAGE
+              value: "/data/requests.json"
           volumeMounts:
             - name: si-pv
               mountPath: "/data"
