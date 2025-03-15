@@ -4,6 +4,7 @@ resources:
 #- nginxconfigmap.yaml
 - service.yaml
 - ingress.yaml
+- pvc.yaml
 
 labels:
 - includeTemplates: true
