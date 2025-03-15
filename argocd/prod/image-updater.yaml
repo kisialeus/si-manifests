@@ -13,5 +13,5 @@ spec:
     namespace: si
   source:
     targetRevision: main
-    repoURL: git@github.com:kisialeus/si-repo.git
+    repoURL: git@github.com:kisialeus/si-manifests.git
     path: manifests/prod
