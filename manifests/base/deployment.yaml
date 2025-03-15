@@ -61,12 +61,12 @@ spec:
             httpGet:
               path: /healthz
               port: web
-            initialDelaySeconds: 35
+            initialDelaySeconds: 5
           readinessProbe:
             httpGet:
               path: /healthz
               port: web
-            initialDelaySeconds: 30
+            initialDelaySeconds: 5
           resources:
             requests:
               memory: "16Mi"
