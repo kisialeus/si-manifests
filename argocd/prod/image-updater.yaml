@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: go-service
   annotations:
-    argocd-image-updater.argoproj.io/image-list: "api-image=385892239032.dkr.ecr.us-east-1.amazonaws.com/si/simplesurance"
+    argocd-image-updater.argoproj.io/image-list: "api-image=385892239032.dkr.ecr.eu-central-1.amazonaws.com/si/simplesurance"
     argocd-image-updater.argoproj.io/api-image.update-strategy: newest-build
     argocd-image-updater.argoproj.io/api-image.kustomize.image-name: "application-image"
     argocd-image-updater.argoproj.io/api-image.force-update: "true"
